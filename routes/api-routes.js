@@ -15,7 +15,7 @@ router.get('/api/notes', (req, res) => {
 // API POST request
 router.post('/api/notes', (req, res) => {
     let notesList = [];
-    let newnote = { title: req.body.title, text: req.body.text, id: uuid };
+    let newnote = { title: req.body.title, text: req.body.text, id: uuid.v1() };
 
     fs.readFile(__dirname + "/../db/db.json", (err, data) => {
         if (err) throw err;
