@@ -7,18 +7,17 @@ const htmlRoutes = require('./routes/html-routes');
 
 // Setting up Server
 const app = express(); //creates an express application
-const PORT = process.env.PORT || 3001; //dynamically setting the port
+const PORT = process.env.PORT || 8080; //dynamically setting the port
 
 //handling data parsing
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(express.static('public')); // Static middleware
 
-app.use(htmlRoutes);
 app.use(apiRoutes);
-
-  
-app.listen(PORT, () => {console.log('Server running on http://localhost:${PORT}')});
+app.use(htmlRoutes);
+ 
+app.listen(PORT, () => { console.log(`Server running on http://localhost:${PORT}`); });
 
 
 
