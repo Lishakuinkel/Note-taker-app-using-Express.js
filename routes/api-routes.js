@@ -39,14 +39,15 @@ router.delete("/api/notes/:id", (req, res) => {
     fs.readFile("./db/db.json", (err, data) => {
         if (err) throw err;
 
-        let allNotes = JSON.parse(data);
+        let allNotes = JSON.parse(data) || [];
         allNotes = allNotes.filter(selected => {return selected.id != noteId});
 
         fs.writeFile("./db/db.json", JSON.stringify(allNotes), "utf-8", err => {
             if (err) throw err;
             console.log("specified note has been deleted");
-            res.json(data);
+            res.json(allNotes);
         });
+        
 
     });
 });
