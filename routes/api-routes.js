@@ -1,7 +1,7 @@
 // Dependencies
 const router = require('express').Router();
 const fs = require('fs'); // Import fs module
-const { v4: uuidv4 } = require('uuid');
+const uuid = require('uuid');
 
 // API GET request
 router.get('/api/notes', (req, res) => {
@@ -14,16 +14,16 @@ router.get('/api/notes', (req, res) => {
 
 // API POST request
 router.post('/api/notes', (req, res) => {
-    let notes = [];
-    let newnote = { title: req.body.title, text: req.body.text, id: uuid.v4() };
+    let notesList = [];
+    let newnote = { title: req.body.title, text: req.body.text, id: uuid };
 
     fs.readFile(__dirname + "/../db/db.json", (err, data) => {
         if (err) throw err;
 
-        notes = JSON.parse(data);
-        notes.push(newnote);
+        notesList = JSON.parse(data);
+        notesList.push(newnote);
 
-        fs.writeFile(__dirname + "/../db/db.json", JSON.stringify(notes), "utf-8", err => {
+        fs.writeFile(__dirname + "/../db/db.json", JSON.stringify(notesList), "utf-8", err => {
             if (err) throw err;
 
             console.log("new note has been saved");
@@ -36,16 +36,16 @@ router.post('/api/notes', (req, res) => {
 // API DELETE request
 router.delete("/api/notes/:id", (req, res) => {
     let noteId = req.params.id;
-    fs.readFile(__dirname + "/../db/db.json", (err, data) => {
+    fs.readFile("./db/db.json", (err, data) => {
         if (err) throw err;
 
         let allNotes = JSON.parse(data);
-        const updatedNotes = allNotes.filter(values => values.id != noteId);
+        allNotes = allNotes.filter(selected => {return selected.id != noteId});
 
-        fs.writeFile(__dirname + "/../db/db.json", JSON.stringify(updatedNotes), "utf-8", err => {
+        fs.writeFile("./db/db.json", JSON.stringify(allNotes), "utf-8", err => {
             if (err) throw err;
             console.log("specified note has been deleted");
-            res.end();
+            res.json(data);
         });
 
     });
