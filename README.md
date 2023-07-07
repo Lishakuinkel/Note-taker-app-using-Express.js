@@ -19,7 +19,6 @@ HTML, CSS, JS, Bootstrap, Node.js, Express.js, and Heroku
 
 <img width="1164" alt="image" src="https://github.com/Lishakuinkel/Note-taker-app-using-Express.js/assets/130411719/d7b140bc-3f70-4720-9c62-2de629517d47">
 
-
 2. When you click on 'Get Started'
 
 <img width="1169" alt="image" src="https://github.com/Lishakuinkel/Note-taker-app-using-Express.js/assets/130411719/ed9d1bb3-c901-4cd5-a4e0-981224146d08">
