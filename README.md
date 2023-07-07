@@ -38,3 +38,5 @@ https://www.npmjs.com/
 
 https://devcenter.heroku.com/start
 
+## Contact 
+If you have any questions, please contact me at ltkuinkel@gmail.com
