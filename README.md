@@ -31,3 +31,10 @@ HTML, CSS, JS, Bootstrap, Node.js, Express.js, and Heroku
 
 <img width="1171" alt="image" src="https://github.com/Lishakuinkel/Note-taker-app-using-Express.js/assets/130411719/331b93dc-a7fc-496f-8852-4b5e5730b52c">
 
+## Resources 
+https://www.geeksforgeeks.org/express-js/
+
+https://www.npmjs.com/
+
+https://devcenter.heroku.com/start
+
